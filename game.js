@@ -1032,7 +1032,6 @@ class PixelBunnyGame {
             home: `
                 <h3 style="color: #ffb6c1; text-shadow: 1px 1px 0px #000000;">🪐 GURLEEN KAUR</h3>
                 <p style="color: #ffb6c1; text-shadow: 1px 1px 0px #000000;"><strong>📍 Auckland, NZ | 💻 admgurleen@gmail.com | 🌐 github.com/gkau306</strong></p>
-                <p style="color: #ffb6c1; text-shadow: 1px 1px 0px #000000;"><strong>Computer Science GPA: 6.7</strong></p>
                 <p style="color: #ffb6c1; text-shadow: 1px 1px 0px #000000;">Bachelor of Science (BSc) – Computer Science & Biology<br>University of Auckland</p>
                 <ul style="color: #ffc0cb; text-shadow: 1px 1px 0px #000000;">
                     <li>Teaching Assistant – COMPSCI 101</li>
