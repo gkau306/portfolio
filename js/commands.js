@@ -2,7 +2,7 @@
 // its own output through ctx).
 
 import { profile, education, experience, projects, skills, awards, contact } from "./content.js";
-import { banner, bunny } from "./ascii.js";
+import { banner, bunny, cats } from "./ascii.js";
 
 const esc = (s) =>
   String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
@@ -185,6 +185,14 @@ export const commands = {
     run: (args, ctx) => {
       ctx.clear();
       return "";
+    },
+  },
+
+  cat: {
+    desc: "draw a cat",
+    run: () => {
+      const art = cats[Math.floor(Math.random() * cats.length)];
+      return `<pre class="ascii cat">${art}</pre><p class="muted">run it again for a different cat 🐈</p>`;
     },
   },
 

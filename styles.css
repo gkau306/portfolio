@@ -320,3 +320,12 @@ body {
 }
 
 .shots:empty { display: none; }
+
+.ascii.cat {
+  /* JetBrains Mono has no CJK glyphs — the kaomoji cats need a fallback */
+  font-family: "JetBrains Mono", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Meiryo", "MS Gothic", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
