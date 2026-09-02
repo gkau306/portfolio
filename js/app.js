@@ -16,6 +16,9 @@ let history = [];
 let histIndex = 0;
 let busy = false;
 
+/* tab-completion state: cycles through matches on repeated presses */
+let completion = null;
+
 /* ---------- theme ---------- */
 const theme = () => document.documentElement.dataset.theme || "light";
 function setTheme(next) {
@@ -123,12 +126,8 @@ input.addEventListener("keydown", (e) => {
     }
   } else if (e.key === "Tab") {
     e.preventDefault();
-    const v = input.value.trim().toLowerCase();
-    if (!v) return;
-    const matches = commandNames.filter((c) => c.startsWith(v) && !commands[c].hidden);
-    if (matches.length === 1) input.value = matches[0] + " ";
-    else if (matches.length > 1) append(`<p class="muted">${matches.join("  ")}</p>`);
-  } else if (e.key === "l" && e.ctrlKey) {
+    cycleCompletion(e.shiftKey ? -1 : 1);
+    } else if (e.key === "l" && e.ctrlKey) {
     e.preventDefault();
     ctx.clear();
   }
@@ -159,6 +158,29 @@ document.addEventListener("click", (e) => {
   if (!shot) return;
   openShot(shot.dataset.shot, shot.dataset.alt);
 });
+
+/* Tab walks forward through the matching commands, shift-tab back.
+   With an empty prompt it walks the whole list. */
+function cycleCompletion(step) {
+  const visible = commandNames.filter((c) => !commands[c].hidden);
+
+  if (!completion || completion.value !== input.value) {
+    const prefix = input.value.trim().toLowerCase();
+    const matches = prefix ? visible.filter((c) => c.startsWith(prefix)) : visible;
+    if (!matches.length) return;
+    completion = { matches, index: step > 0 ? 0 : matches.length - 1, value: "" };
+  } else {
+    const n = completion.matches.length;
+    completion.index = (completion.index + step + n) % n;
+  }
+
+  input.value = completion.matches[completion.index];
+  completion.value = input.value;
+  input.setSelectionRange(input.value.length, input.value.length);
+}
+
+/* any other edit or run drops the completion cycle */
+input.addEventListener("input", () => (completion = null));
 
 /* clicking any [data-cmd] runs it */
 document.addEventListener("click", (e) => {

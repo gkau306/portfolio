@@ -87,7 +87,7 @@ export const commands = {
       return `
         ${head("commands", "click one, or type it and hit enter")}
         <table class="help">${rows}</table>
-        <p class="hint-line muted">tab completes · ↑ ↓ walks history · a few commands aren't on this list</p>`;
+        <p class="hint-line muted">tab cycles through commands · ↑ ↓ walks history · a few commands aren't on this list</p>`;
     },
   },
 
