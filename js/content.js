@@ -131,8 +131,7 @@ export const projects = [
     ],
     images: [],
     links: [
-      // TODO: swap for the exact LinkedIn post URL — this points at the profile for now.
-      { label: "The story on LinkedIn ↗", href: "https://www.linkedin.com/in/gurleen-kaur" },
+      { label: "The story on LinkedIn ↗", href: "https://www.linkedin.com/in/gurleen-kaur/" },
     ],
   },
   {
@@ -186,5 +185,5 @@ export const contact = {
   email: "admgurleen@gmail.com",
   phone: "+64 22 246 4290",
   github: "https://github.com/gkau306",
-  linkedin: "https://www.linkedin.com/in/gurleen-kaur",
+  linkedin: "https://www.linkedin.com/in/gurleen-kaur/",
 };
