@@ -1,268 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐰 Galaxy Bunny Portfolio - Space Adventure</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0a0a1a;
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
-        }
-
-        #gameContainer {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        #gameCanvas {
-            display: block;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-            cursor: grab;
-        }
-        
-        #gameCanvas:active {
-            cursor: grabbing;
-        }
-        
-        #startScreen {
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 192, 203, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a2e 0%, #1a1a4a 50%, #0f0f3a 100%);
-        }
-        
-        #startScreen h1 {
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from { text-shadow: 2px 2px 0px #000000, 0 0 10px #ffb6c1; }
-            to { text-shadow: 2px 2px 0px #000000, 0 0 20px #ffb6c1, 0 0 30px #ffb6c1; }
-        }
-
-        #ui {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        #hud {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: #00ff00;
-            font-size: 16px;
-            text-shadow: 2px 2px 0px #000;
-            pointer-events: none;
-        }
-
-        #controls {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #ffff00;
-            font-size: 14px;
-            text-shadow: 2px 2px 0px #000;
-            pointer-events: none;
-        }
-
-        #sectionInfo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            border: 3px solid #00ff00;
-            border-radius: 8px;
-            padding: 20px;
-            color: #00ff00;
-            font-size: 18px;
-            text-align: center;
-            display: none;
-            pointer-events: none;
-            box-shadow: 0 0 20px #00ff00;
-        }
-
-        #loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #00ff00;
-            font-size: 24px;
-            text-shadow: 2px 2px 0px #000;
-        }
-
-        .pixel-text {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            text-shadow: 2px 2px 0px #000;
-        }
-
-        #particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ff00;
-            border-radius: 50%;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
-        }
-
-        #miniMap {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 200px;
-            height: 150px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #00ff00;
-            border-radius: 8px;
-            pointer-events: none;
-        }
-
-        .map-section {
-            position: absolute;
-            width: 40px;
-            height: 30px;
-            border: 1px solid #ffff00;
-            background: rgba(255, 255, 0, 0.3);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #ffff00;
-        }
-
-        .map-section.active {
-            background: rgba(0, 255, 0, 0.5);
-            border-color: #00ff00;
-            color: #00ff00;
-        }
-
-        .map-player {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #ff00ff;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gurleen Kaur — Software Engineer</title>
+<meta name="description" content="Gurleen Kaur — software engineer in Auckland, NZ. A little pink terminal you navigate with commands.">
+<meta name="theme-color" content="#fff5f8">
+<meta property="og:title" content="Gurleen Kaur — Software Engineer">
+<meta property="og:description" content="A little pink terminal you navigate with commands. Type `projects`.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Start Screen -->
-    <div id="startScreen" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: linear-gradient(135deg, #0a0a2e, #1a1a4a);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-        font-family: 'Courier New', monospace;
-    ">
-        <div style="text-align: center; color: #ffb6c1;">
-            <h1 style="font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 0px #000000;">🐰 GALAXY BUNNY PORTFOLIO</h1>
-            <p style="font-size: 24px; margin-bottom: 40px; color: #ffc0cb; text-shadow: 1px 1px 0px #000000;">Space Adventure Awaits!</p>
-            <button id="startButton" style="
-                background: #ffb6c1;
-                color: #000000;
-                border: 3px solid #ffc0cb;
-                padding: 15px 30px;
-                border-radius: 10px;
-                cursor: pointer;
-                font-family: 'Courier New', monospace;
-                font-weight: bold;
-                font-size: 20px;
-                text-shadow: 1px 1px 0px #ffffff;
-                box-shadow: 0 0 0 2px #000000, inset 0 0 0 2px #ffffff;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#ffc0cb'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='#ffb6c1'; this.style.transform='scale(1)'">
-                START GAME
-            </button>
-        </div>
-    </div>
+  <div class="app">
 
-    <div id="gameContainer" style="display: none;">
-        <canvas id="gameCanvas"></canvas>
-        
-        <div id="ui">
-            <div id="hud">
-                <div class="pixel-text">🐰 GALAXY BUNNY PORTFOLIO</div>
-                <div>Energy: ██████████</div>
-                <div>Mission: Space Explorer</div>
-                <div>Score: <span id="score">0</span></div>
-            </div>
+    <aside class="rail">
+      <div class="rail-brand">
+        <span class="dot-live"></span>
+        <span class="rail-name">gurleen<span class="muted">.kaur</span></span>
+      </div>
 
-            <div id="miniMap">
-                <div class="map-section" style="top: 10px; left: 10px;">🪐</div>
-                <div class="map-section" style="top: 10px; right: 10px;">🚀</div>
-                <div class="map-section" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">🏆</div>
-                <div class="map-section" style="bottom: 10px; left: 10px;">⭐</div>
-                <div class="map-section" style="bottom: 10px; right: 10px;">📡</div>
-                <div class="map-player" id="mapPlayer"></div>
-            </div>
+      <nav class="rail-group" aria-label="Sections">
+        <p class="rail-label">sections</p>
+        <button class="rail-item" data-cmd="about"><span class="rail-key">01</span>about</button>
+        <button class="rail-item" data-cmd="projects"><span class="rail-key">02</span>projects</button>
+        <button class="rail-item" data-cmd="experience"><span class="rail-key">03</span>experience</button>
+        <button class="rail-item" data-cmd="skills"><span class="rail-key">04</span>skills</button>
+        <button class="rail-item" data-cmd="awards"><span class="rail-key">05</span>awards</button>
+        <button class="rail-item" data-cmd="contact"><span class="rail-key">06</span>contact</button>
+      </nav>
 
-            <div id="controls">
-                <div class="pixel-text">CONTROLS:</div>
-                <div>WASD / Arrow Keys - Move</div>
-                <div>Mouse Drag - Pan Camera</div>
-                <div>SPACE - Interact</div>
-                <div>R - Reset Camera</div>
-                <div>ESC - Menu</div>
-            </div>
+      <div class="rail-group">
+        <p class="rail-label">shortcuts</p>
+        <button class="rail-item ghost" data-cmd="resume">resume ↓</button>
+        <button class="rail-item ghost" data-cmd="help">help</button>
+        <button class="rail-item ghost" data-cmd="clear">clear</button>
+      </div>
 
-            <div id="sectionInfo">
-                <div class="pixel-text" id="sectionTitle">Welcome!</div>
-                <div id="sectionDescription">Use WASD or Arrow Keys to move around</div>
-                <div style="margin-top: 10px; font-size: 14px;">Press SPACE to interact with sections</div>
-            </div>
+      <div class="rail-foot">
+        <button id="theme-btn" class="theme-btn" type="button" aria-label="Toggle theme">☀ light</button>
+        <p class="rail-note">CS + Biology @ UoA<br>Auckland, NZ</p>
+      </div>
+    </aside>
 
-            <div id="loading">
-                <div class="pixel-text">Loading Galaxy...</div>
-                <div style="margin-top: 10px;">🌌</div>
-            </div>
-        </div>
+    <main class="window">
+      <div class="titlebar">
+        <span class="lights"><i></i><i></i><i></i></span>
+        <span class="title">gurleen@portfolio — <span class="muted">zsh</span></span>
+        <span class="title-right muted">v2 · no bunnies</span>
+      </div>
 
-        <div id="particles"></div>
-    </div>
+      <div class="screen" id="screen">
+        <div id="output"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="game.js"></script>
+        <form id="prompt-form" class="prompt" autocomplete="off">
+          <label for="input" class="prompt-label">
+            <span class="prompt-user">gurleen</span><span class="prompt-sep">@</span><span class="prompt-host">portfolio</span><span class="prompt-path">~</span><span class="prompt-caret">❯</span>
+          </label>
+          <input id="input" name="input" type="text" spellcheck="false" autocapitalize="off"
+                 autocorrect="off" aria-label="Terminal input" placeholder="type a command… (try: projects)">
+        </form>
+      </div>
+
+      <div class="statusbar">
+        <span><span class="dot-live"></span> online</span>
+        <span class="muted">tab completes · ↑↓ history · ctrl-l clears</span>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

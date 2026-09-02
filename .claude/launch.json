@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "portfolio", "runtimeExecutable": "/usr/bin/python3", "runtimeArgs": ["/Users/gurleenkaur/Desktop/portfolio/.claude/serve.py"], "port": 4321 }
+  ]
+}
