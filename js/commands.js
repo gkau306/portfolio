@@ -94,8 +94,8 @@ export const commands = {
   about: {
     desc: "who I am",
     run: () => `
-      ${head("about", profile.role)}
-      <p class="lede">${profile.blurb.join("<br>")}</p>
+      ${head("about")}
+      ${profile.blurb.map((para) => `<p class="lede">${para}</p>`).join("")}
       <p class="hint-line">${cmdLink("projects")} ${cmdLink("experience")} ${cmdLink("contact")}</p>`,
   },
 

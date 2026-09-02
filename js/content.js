@@ -5,17 +5,11 @@ export const profile = {
   handle: "gurleen",
   role: "Software Engineer · CS + Biology @ University of Auckland",
   location: "Auckland, New Zealand",
+  // One entry per paragraph — no manual line breaks, let it wrap.
   blurb: [
-    "I'm passionate about tech and AI systems that <b>scale</b> — the parts that hold up",
-    "once real traffic and real users hit them. Backend, infra, and the architecture",
-    "decisions underneath are the bits I actually enjoy.",
-    "",
-    "<b>Looking for backend and infrastructure roles.</b>",
-    "",
-    "Mostly I just like making things. Right now that's my own startup, teaching 100+",
-    "students to debug their Python, and shipping product at WDCC.",
-    "",
-    "Otherwise: probably claudemaxxing, drinking matcha 🍵",
+    "I'm doing CS + Biology at the University of Auckland. I like tech and I like building cool things, especially the creative side of AI — right now I'm messing around with some very cool software :)",
+    "Otherwise I'm probably out hiking, writing emo poetry, or claudemaxxing. If you need a matcha recommendation in Auckland, just shoot me an email ^_^",
+    "I'm looking for <b>backend and AI / infra roles</b> — if you'd like to work together, please email me (・‿・)",
   ],
 };
 
