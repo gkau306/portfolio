@@ -322,12 +322,10 @@ body {
 .shots:empty { display: none; }
 
 .ascii.cat {
-  /* These kaomoji are drawn for MS PGothic — a PROPORTIONAL Japanese font.
-     Forcing them into a monospace face is what knocks the ears and paws out
-     of line, so they get the font family they were designed for. */
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Meiryo",
-    "Yu Gothic", "MS PGothic", "IPAMonaPGothic", sans-serif;
-  font-size: 17px;
-  line-height: 1.15;
+  /* JetBrains Mono has no CJK glyphs — the kaomoji cats need a fallback */
+  font-family: "JetBrains Mono", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Meiryo", "MS Gothic", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.4;
   margin-bottom: 10px;
 }
