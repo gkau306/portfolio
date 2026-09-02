@@ -325,8 +325,8 @@ body {
   /* These kaomoji are drawn for MS PGothic — a PROPORTIONAL Japanese font.
      Forcing them into a monospace face is what knocks the ears and paws out
      of line, so they get the font family they were designed for. */
-  font-family: "MS PGothic", "MS Pゴシック", "IPAMonaPGothic", "Hiragino Kaku Gothic ProN",
-    "Hiragino Kaku Gothic Pro", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "Meiryo",
+    "Yu Gothic", "MS PGothic", "IPAMonaPGothic", sans-serif;
   font-size: 17px;
   line-height: 1.15;
   margin-bottom: 10px;
