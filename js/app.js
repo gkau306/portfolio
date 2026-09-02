@@ -134,6 +134,32 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
+/* ---------- lightbox ---------- */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = lightbox.querySelector("img");
+const lightboxCap = lightbox.querySelector("figcaption");
+
+function openShot(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || "";
+  lightboxCap.textContent = alt || "";
+  lightbox.hidden = false;
+}
+function closeShot() {
+  lightbox.hidden = true;
+  lightboxImg.src = "";
+}
+lightbox.addEventListener("click", closeShot);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !lightbox.hidden) closeShot();
+});
+
+document.addEventListener("click", (e) => {
+  const shot = e.target.closest("[data-shot]");
+  if (!shot) return;
+  openShot(shot.dataset.shot, shot.dataset.alt);
+});
+
 /* clicking any [data-cmd] runs it */
 document.addEventListener("click", (e) => {
   const el = e.target.closest("[data-cmd]");

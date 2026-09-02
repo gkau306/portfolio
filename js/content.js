@@ -6,14 +6,16 @@ export const profile = {
   role: "Software Engineer · CS + Biology @ University of Auckland",
   location: "Auckland, New Zealand",
   blurb: [
-    "I build things that ship — GPS fleet tracking for 50+ IoT devices, multi-agent",
-    "AI platforms, and an EdTech tool that keeps CS students thinking while an agent",
-    "writes their code.",
+    "I'm passionate about tech and AI systems that <b>scale</b> — the parts that hold up",
+    "once real traffic and real users hit them. Backend, infra, and the architecture",
+    "decisions underneath are the bits I actually enjoy.",
     "",
-    "Mostly TypeScript, React and Python. Currently co-founding <b>Scaffold</b>, building",
-    "<b>OnChain</b> at WDCC, and teaching 100+ first-year students to debug their Python.",
+    "<b>Looking for backend and infrastructure roles.</b>",
     "",
-    "I like problems where the interesting part is the architecture, not the framework.",
+    "Mostly I just like making things. Right now that's my own startup, teaching 100+",
+    "students to debug their Python, and shipping product at WDCC.",
+    "",
+    "Otherwise: probably claudemaxxing, drinking matcha 🍵",
   ],
 };
 
@@ -85,11 +87,10 @@ export const projects = [
     badge: "Velocity Stage 2 · top 30 of 150+",
     stack: ["TypeScript", "React", "Node.js", "VS Code Extension API", "MCP", "SVG"],
     bullets: [
-      "A VS Code extension that keeps CS students thinking while an AI agent writes their code: it streams the agent's actions, parks the build at consequential architecture decisions (auth model, data storage) for the student to make, and logs the reasoning to a LEARNING_LOG.md they submit with the assignment.",
-      "Architected the MVP as one TypeScript process — an MCP-over-HTTP server in the extension host that any MCP-speaking agent calls at a fork, plus a session-transcript tailer driving the live panel — cutting the prototype's Python runtime, API key and shell hooks, so install is zero-config and Scaffold is never in the agent's tool path.",
-      "Running customer discovery with University of Auckland CS faculty and students, advised by three Professional Teaching Fellows on rollout, procurement and academic-integrity workflows, with classroom pilot testing next.",
-      "Built the educator insight dashboard in hand-rolled responsive SVG, surfacing cohort concept gaps without surveilling individuals.",
+      "Building an EdTech platform — currently selected for Stage 2 of the Velocity Innovation Challenge (top 30 of 150+).",
     ],
+    note: "More once Stage 2 wraps up. Stay tuned.",
+    images: [],
     links: [],
   },
   {
@@ -106,6 +107,13 @@ export const projects = [
       "Built a two-tier recommendation engine where one LLM reads the ad creative visually and a second grounds the fix in live research.",
       "Designed the LLM security layer — prompt-injection and jailbreak guards, rate limiting, PII scrubbing — validated against a 190+ prompt OWASP-aligned adversarial suite.",
     ],
+    images: [
+      { src: "assets/projects/erica/01-landing.png", alt: "Erica landing page — Your Data, Erica" },
+      { src: "assets/projects/erica/02-dashboard.png", alt: "Executive summary dashboard with fatigue score and spend, ROAS and CTR trends" },
+      { src: "assets/projects/erica/03-creatives.png", alt: "Per-client creative grid with health labels and fatigue sensitivity slider" },
+      { src: "assets/projects/erica/04-chat-roas.png", alt: "Analyzer chat rendering a ROAS trend chart for the top 3 ads" },
+      { src: "assets/projects/erica/05-chat-table.png", alt: "Analyzer chat rendering a week-over-week metric comparison table" },
+    ],
     links: [],
   },
   {
@@ -121,7 +129,11 @@ export const projects = [
       "Designed a multi-agent orchestration system: a supervisor plus five specialists (farm financials, market intelligence, credit, compliance, relationship), with deterministic ratio and lending-framework logic kept in code outside the LLM, so every number is calculated rather than generated.",
       "Built retrieval-augmented context over an industry-tagged Bedrock Knowledge Base on an S3 corpus with per-document metadata sidecars, assembling ratios, flags, market intel, ranked questions and inline citations behind one endpoint.",
     ],
-    links: [],
+    images: [],
+    links: [
+      // TODO: swap for the exact LinkedIn post URL — this points at the profile for now.
+      { label: "The story on LinkedIn ↗", href: "https://www.linkedin.com/in/gurleen-kaur" },
+    ],
   },
   {
     id: "damage-capture",
@@ -175,5 +187,4 @@ export const contact = {
   phone: "+64 22 246 4290",
   github: "https://github.com/gkau306",
   linkedin: "https://www.linkedin.com/in/gurleen-kaur",
-  resume: "assets/Gurleen_Kaur_Resume.pdf",
 };

@@ -10,11 +10,12 @@ GitHub Pages serves it.
 ## Run locally
 
 ```bash
-python3 -m http.server 4321
+python3 .claude/devserver.py
 ```
 
-Then open http://localhost:4321 (it must be served over http, not opened as a file —
-ES modules don't load from `file://`).
+Then open http://localhost:4321. It must be served over http, not opened as a file —
+ES modules don't load from `file://`. The dev server sends `no-store`, so edits to
+`js/*.js` show up on a plain reload instead of being cached.
 
 ## Editing
 
@@ -25,7 +26,7 @@ ES modules don't load from `file://`).
 | `js/app.js` | Terminal engine — input, history, tab-completion, boot sequence, theme. |
 | `js/ascii.js` | The ASCII banner. |
 | `styles.css` | Pink. All the pink lives in the `:root` tokens at the top. |
-| `assets/` | Resume PDF, and any images you add. |
+| `assets/` | Project screenshots, under `assets/projects/<id>/`. |
 
 ### Adding a project
 
@@ -43,6 +44,21 @@ Append an object to the `projects` array in `js/content.js`:
   bullets: ["what it does", "the interesting engineering bit"],
 }
 ```
+
+### Adding screenshots to a project
+
+Put the files in `assets/projects/<project-id>/` and list them on the project:
+
+```js
+images: [
+  { src: "assets/projects/erica/01-landing.png", alt: "caption shown under the full-size view" },
+],
+links: [{ label: "Case study ↗", href: "https://…" }],
+```
+
+Thumbnails appear on the project card; clicking one opens it full-size (Esc or
+click to close). A missing file removes its own thumbnail, so nothing ever
+renders as a broken image.
 
 ### Adding a command
 

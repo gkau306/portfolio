@@ -19,6 +19,25 @@ const bullets = (items) =>
 const cmdLink = (c, label = c) =>
   `<button class="inline-cmd" data-cmd="${esc(c)}">${esc(label)}</button>`;
 
+const gallery = (images) =>
+  !images || !images.length
+    ? ""
+    : `<div class="shots">${images
+        .map(
+          (im) =>
+            `<button class="shot" data-shot="${esc(im.src)}" data-alt="${esc(im.alt)}" title="${esc(im.alt)}">
+               <img src="${esc(im.src)}" alt="${esc(im.alt)}" loading="lazy" onerror="this.closest('.shot').remove()">
+             </button>`
+        )
+        .join("")}</div>`;
+
+const linkRow = (links) =>
+  !links || !links.length
+    ? ""
+    : `<p class="hint-line">${links
+        .map((l) => `<a class="link" href="${esc(l.href)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`)
+        .join("")}</p>`;
+
 const extLink = (href, label) =>
   `<a class="link" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
 
@@ -32,10 +51,12 @@ function projectCard(p, compact) {
       </div>
       <p class="card-tagline">${esc(p.tagline)}</p>
       ${p.badge ? `<p class="badge">★ ${esc(p.badge)}</p>` : ""}
+      ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
       ${tags(p.stack)}
+      ${gallery(p.images)}
       ${compact
         ? `<p class="hint-line">${cmdLink(`projects ${p.id}`, `read more →`)}</p>`
-        : bullets(p.bullets)}
+        : bullets(p.bullets) + linkRow(p.links)}
     </article>`;
 }
 
@@ -145,15 +166,7 @@ export const commands = {
         <tr><td class="muted">github</td><td>${extLink(contact.github, "github.com/gkau306")}</td></tr>
         <tr><td class="muted">linkedin</td><td>${extLink(contact.linkedin, "in/gurleen-kaur")}</td></tr>
         <tr><td class="muted">location</td><td>${esc(profile.location)}</td></tr>
-      </table>
-      <p class="hint-line">${cmdLink("resume", "or grab the resume →")}</p>`,
-  },
-
-  resume: {
-    desc: "download the PDF",
-    run: () => `
-      ${head("resume")}
-      <p class="lede">${extLink(contact.resume, "Gurleen_Kaur_Resume.pdf ↓")}</p>`,
+      </table>`,
   },
 
   theme: {
@@ -182,7 +195,7 @@ export const commands = {
     hidden: true,
     desc: "list sections",
     run: () =>
-      `<p class="ls">${["about", "projects", "experience", "skills", "awards", "education", "contact", "resume"]
+      `<p class="ls">${["about", "projects", "experience", "skills", "awards", "education", "contact"]
         .map((c) => cmdLink(c))
         .join("")}</p>`,
   },
